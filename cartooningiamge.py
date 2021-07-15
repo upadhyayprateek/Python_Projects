@@ -1,0 +1,1 @@
+print("Cartoon Image")
