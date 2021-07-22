@@ -7,15 +7,25 @@ def readnews(topic,page):
   print("Title--", x['title'])
   # print("Image--", x['img'])
   print("Description--", x['desc'])
- val = input("Do you want to know more:(Answer in Y Or N) ")
- if val == 'Y':
+ valcondition = input("Do you want to know more:(Answer in Y Or N) ")
+ if valcondition == 'Y':
   readnews(topic,page+1) 
-
+ elif valcondition == 'N':
+  valtopiccondition = input("Do You want to change the topic:(Answer in Y or N) ")
+  if valtopiccondition == "Y":
+    topic = input("Enter the news you want to know about ")
+    page = 1
+    googlenews.search(topic)
+    # result = googlenews.result()
+    readnews(topic,page)
+ 
 from GoogleNews import GoogleNews
 googlenews= GoogleNews()
 googlenews= GoogleNews(period="7d")
 topic = input("Enter the news you want to know about")
 googlenews.search(topic)
-result = googlenews.result()
+# result = googlenews.result()
 page = 1
 readnews(topic,page)
+
+
